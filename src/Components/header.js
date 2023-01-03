@@ -17,6 +17,7 @@ export const Header = () =>{
                     <div className="menu">
                         <Link to="/">home</Link>
                         <Link to="/about">about</Link>
+                        <Link to="/gallery">Gallery</Link>
                     </div>
                     </Col>
                 </Row>
