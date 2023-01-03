@@ -9,9 +9,17 @@ const Gallery = () =>{
     return(
         <>
         <Header/>
-        <p>hellow</p>
+        <div className="gl-heading">
+            <h2>Photo Gallery</h2>
+        </div>
         <div className="my-image">
-            <img src={resp} alt="blog image"/>
+            {
+                resp ? 
+                <>
+                <img src={resp} alt="blog image"/>
+                </> 
+                : "Please add image"
+            }
         </div>
         </>
     )
