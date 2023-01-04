@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './Pages/About/about';
 import Gallery from './Pages/Gallery/gallery';
+import PageNotFound from './Pages/PageNotFound/pageNotFound';
 const Home = React.lazy(() => import("./Pages/Home/home"));
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
             <Route path='/' element={<Home />}  />
             <Route path='/about' element={<About />}/>
             <Route path='/gallery' element={<Gallery />}/>
+            <Route path='*' element={<PageNotFound/>}/>
+
         </Routes>
         </React.Suspense>
       </Router>
