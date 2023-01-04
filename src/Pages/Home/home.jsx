@@ -2,24 +2,34 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../../Components/header";
-import { getAllData } from "../../Redux/Action/authAction";
+// import { getAllData } from "../../Redux/Action/authAction";
 import { FaArrowCircleUp } from 'react-icons/fa';
+import { getAllPost } from "../../Redux/Reducers/crudReducer";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const resp = useSelector((state) => state?.authReducer?.data);
-  const [list, setList] = useState([]);
-  useEffect(() => {
-    dispatch(getAllData());
-  }, []);
-  useEffect(() => {
-    if (resp.status === 200) {
-      setList(resp?.data);
-    }
-  }, [resp]);
-
   const [visible, setVisible] = useState(false)
-  
+
+  // const resp = useSelector((state) => state?.authReducer?.data);
+  const response = useSelector((state)=>state?.crudReducer?.getPost)
+  console.log(123456,response)
+  const [list, setList] = useState([]);
+
+  // useEffect(() => {
+    // dispatch(getAllData());
+    // dispatch(getAllPost())
+  // }, []);
+
+  useEffect(() => {
+    if (response.status === 200) {
+      setList(response?.data);
+    }
+  }, [response]);
+
+  useEffect(()=>{
+    dispatch(getAllPost())
+  },[])
+
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300){
@@ -38,13 +48,11 @@ const Home = () => {
 
   window.addEventListener('scroll', toggleVisible);
 
-
   return (
     <div className="home-page">
     <Header />
     <Container>
       <h1>Home page</h1>
-      
       {list ? (
         <>
           <Row>
@@ -62,7 +70,7 @@ const Home = () => {
         "Record Not Found"
       )}   
       </Container>
-      <div className= { visible?"icon2" : "icon" }>
+      <div className= { visible ? "icon2" : "icon" }>
         <FaArrowCircleUp  onClick={scrollToTop} 
       />
       </div>

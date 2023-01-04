@@ -3,7 +3,7 @@ const initialState = {
   data: [],
 };
 const authReducer = (state = initialState, action) => {
-  console.log("action", action);
+
   switch (action.type) {
     case GET_ALL_DATA:
       return {
