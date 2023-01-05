@@ -95,3 +95,34 @@
 .gl-heading{
   padding: 20px 30px;
 }
+.file-field{
+  margin-left: 20px;
+}
+input[type="text"],input[type="email"],input[type="file"],input[type="password"]{
+  padding: 8px 20px;
+}
+.about-page-wr{
+  padding: 40px 0px;
+}
+.form-container{
+  padding: 20px 0px;
+}
+.cell-image img{
+  width: 130px;
+  height: 70px;
+}
+.del-icon svg{
+  margin-left: 12px;
+  font-size: 15px;
+}
+.email-field{
+  position: relative;
+}
+.eyes-icon svg{
+  font-size: 25px;
+}
+.eyes-icon{
+  position: absolute;
+  top: 6px;
+  right: 429px;
+}

@@ -5,7 +5,7 @@ import { getPost } from "../../Api/apiRoute";
 const initialState = {
     getPost:[],
     status:"",
-    loading:false
+    data:[]
 };
 
 export const getAllPost = createAsyncThunk(
@@ -27,7 +27,12 @@ export const getAllPost = createAsyncThunk(
 const crudSlice = createSlice({
     name:"crud",
     initialState,
-    reducers:{},
+    reducers:{
+        addData: (state,action) => {
+            let object = action.payload
+            state.data.push(object)
+        }
+    },
     extraReducers:(builder) => {
         builder.addCase(getAllPost.pending,(state)=>{
             state.status = "pending";
@@ -41,5 +46,7 @@ const crudSlice = createSlice({
         })
     }
 })
+
+export const { addData } = crudSlice.actions;
 
 export default crudSlice.reducer;
